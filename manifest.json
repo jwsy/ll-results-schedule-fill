@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "LearnedLeague Results Schedule Autofill",
+  "version": "1.0.0",
+  "description": "Fills blank Result/Record/Rank cells after MD1 (MD2–MD25) in LL player pages using current rundle standings.",
+  "permissions": ["scripting"],
+  "host_permissions": [
+    "https://learnedleague.com/*",
+    "https://www.learnedleague.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://learnedleague.com/profiles.php*",
+        "https://www.learnedleague.com/profiles.php*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
